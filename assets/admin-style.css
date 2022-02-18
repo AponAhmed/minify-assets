@@ -1,0 +1,192 @@
+/* 
+    Created on : Jan 28, 2022, 5:37:05 PM
+    Author     : Apon
+*/
+
+
+.collapse {
+    display: none;
+}
+.nav-tab-wrapper.minify-tab {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.minify-tab-title {
+    position: absolute;
+    right: 10px;
+}
+.minify-option {
+    padding: 25px 10px;
+    flex-basis: 33%;
+}
+.opt-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.assets-wrap {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.minify-option .option-wrap {
+    margin-bottom: 10px;
+}
+.asset-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    border: 1px solid #f7f7f7;
+    justify-content: space-between;
+    background: #fff;
+    padding: 4px 10px;
+    margin-bottom: -1px;
+    border-radius: 5px;
+}
+.asset-control select {
+    max-height: 26px;
+    min-height: auto;
+    font-size: 11px;
+}
+.assets-list li {
+    margin: 0;
+}
+
+/*Template basis*/
+
+.template-assets-manager {
+    position: relative;
+    padding: 15px 8px;
+}
+.template-select-area {
+    position: absolute;
+    right: 0;
+}
+.templateAsset-tab {
+    border-bottom:1px solid #eae5e5;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.templateAsset-tab a {
+    padding: 4px 18px;
+    background: #e6e6e6;
+    text-decoration: none;
+    border: 1px solid #c4c4c4;
+    display: inline-block;
+    margin-right: 5px;
+    border-bottom: 0;
+}
+.templateAsset-tab a.active {
+    background: #fff;
+}
+.template-asset-tab-pan {
+    display: none;
+}
+.template-asset-tab-pan.active {
+    display: block;
+}
+.asset-wrap {
+    display: flex;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.asset-wrap > div {
+    flex-basis: 50%;
+    padding: 0 20px;
+    position: relative;
+}
+
+.asset-wrap > div > ul {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    padding-top: 32px;
+    position: relative;
+    padding-bottom: 0;
+}
+
+.asset-wrap > div > ul::before {
+    content: "Default";
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    color: #7d7d7d;
+}
+.template-header-assets.template-assets-css::before {
+    content: "Header CSS";
+}
+.template-footer-assets.template-assets-css::before {
+    content: "Footer CSS";
+}
+.template-header-assets.template-assets-js::before {
+    content: "Header JS";
+}
+.template-footer-assets.template-assets-js::before {
+    content: "Footer JS";
+}
+.AddNewAsset {
+    position: absolute;
+    right: 27px;
+    top: 20px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px 2px 5px;
+    cursor: pointer;
+}
+.new-asset-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 25px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+.new-asset-popup ul li {
+    border: 1px solid #eee;
+    padding: 2px 10px;
+}
+.new-asset-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 25px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0px;
+}
+.new-asset-popup ul {
+    min-width: 220px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 25px;
+}
+.add-asset-close {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.asset-wrap-inner .asset-item {
+    margin-bottom: 2px;
+}
+.asset-wrap-inner .asset-item:last-child {
+    margin-bottom: 10px;
+}
+.remove-temp-asset {
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.asset-item label a,.asset-wrap-inner .asset-item a  {
+    text-decoration: none;
+}

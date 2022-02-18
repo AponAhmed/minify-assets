@@ -1,0 +1,19 @@
+{
+    "name": "aponahmed/minify",
+    "description": "WordPress plugin To minify WP Assets",
+    "type": "wp-plugin",
+    "autoload": {
+        "psr-4": {
+            "MFY\\libs\\": "libs/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Apon Ahmed",
+            "email": "apon2041@gmail.com"
+        }
+    ],
+    "require": {
+        "matthiasmullie/minify": "^1.3"
+    }
+}
