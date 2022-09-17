@@ -18,7 +18,34 @@ class HtmlMinify {
 
     //put your code here
     static function minify($html) {
-        $html = self::minify_html_filter($html);
+        return self::minify_html_($html);
+
+        //$html = self::minify_html_filter(self::minify_html_($html));
+        //return $html;
+    }
+
+    static function minify_html_($html) {
+        $search = array(
+            '/(\n|^)(\x20+|\t)/',
+            '/(\n|^)\/\/(.*?)(\n|$)/',
+            '/\n/',
+            '/\<\!--.*?-->/',
+            '/(\x20+|\t)/', # Delete multispace (Without \n)
+            '/\>\s+\</', # strip whitespaces between tags
+            '/(\"|\')\s+\>/', # strip whitespaces between quotation ("') and end tags
+            '/=\s+(\"|\')/'); # strip whitespaces between = "'
+
+        $replace = array(
+            "\n",
+            "\n",
+            " ",
+            "",
+            " ",
+            "><",
+            "$1>",
+            "=$1");
+
+        $html = preg_replace($search, $replace, $html);
         return $html;
     }
 

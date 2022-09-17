@@ -19,7 +19,10 @@ class FrontEnd {
     public $homePageID;
 
     public function __construct($option) {
-        global $post;
+        global $post, $wp_filter;
+        if (!isset($wp_filter['final_output_cache'])) {
+            self::FrontEndInit();
+        }
         $this->option = $option;
         //$this->deQueAll();
         $this->wp_scripts = get_option('wp_scripts'); //
@@ -79,20 +82,36 @@ class FrontEnd {
         }
 
         if ($this->option->html['enable'] == '1') {
-            ob_start();
-            add_action('shutdown', function () {
-                $final = '';
-                // We'll need to get the number of ob levels we're in, so that we can iterate over each, collecting
-                // that buffer's output into the final output.
-                $levels = ob_get_level();
-                for ($i = 0; $i < $levels; $i++) {
-                    $final .= ob_get_clean();
-                }
-                // Apply any filters to the final output
-                echo HtmlMinify::minify($final);
-                //echo apply_filters('final_output', $final);
-            }, 0);
+            add_filter('final_output_cache', [$this, 'minifyHtml'], 9998);
+//            ob_start();
+//            add_action('shutdown', function () {
+//                $final = '';
+//                // We'll need to get the number of ob levels we're in, so that we can iterate over each, collecting
+//                // that buffer's output into the final output.
+//                $levels = ob_get_level();
+//                for ($i = 0; $i < $levels; $i++) {
+//                    $final .= ob_get_clean();
+//                }
+//                // Apply any filters to the final output
+//                //echo apply_filters('final_output', $final);
+//            }, 0);
         }
+    }
+
+    function minifyHtml($final) {
+        return HtmlMinify::minify($final);
+    }
+
+    public static function FrontEndInit() {
+        ob_start();
+        add_action('shutdown', function () {
+            $final = '';
+            $levels = ob_get_level();
+            for ($i = 0; $i < $levels; $i++) {
+                $final .= ob_get_clean();
+            }
+            echo apply_filters('final_output_cache', $final);
+        }, 0);
     }
 
     function templatebasisFile($type = 'css', $pos = 'header') {
