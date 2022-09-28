@@ -29,6 +29,9 @@
     display: flex;
     flex-direction: column;
 }
+.assets-wrap > label {
+    margin-top: 10px;
+}
 .minify-option .option-wrap {
     margin-bottom: 10px;
 }

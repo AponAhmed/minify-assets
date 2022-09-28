@@ -142,3 +142,18 @@ function loadAssets(_this) {
         window.location.reload();
     });
 }
+
+
+function checkAllEnable(_this) {
+    if (jQuery(_this).is(":checked")) {
+        console.log('checked');
+        jQuery(_this).closest('.assets-wrap').find('.enableCheck').each(function () {
+            jQuery(this).prop('checked', true);
+        });
+    } else {
+        console.log('Unchecked');
+        jQuery(_this).closest('.assets-wrap').find('.enableCheck').each(function () {
+            jQuery(this).prop('checked', false);
+        });
+    }
+}

@@ -186,7 +186,7 @@ class FileGenerator {
                         $singleFileName = $this->option->js['resource'][$handle]['id'];
                         file_put_contents(__MFY_STORAGE_DIR . $singleFileName, $singleFileScript);
 
-                        $jsCommon .= "\n/*$handle*/";
+                        $jsCommon .= "\n/*$handle*/\n";
                         $jsCommon .= $singleFileScript;
                     }
                 }

@@ -139,6 +139,7 @@ class AdminView {
                 </div> 
             </div>
             <div class="assets-wrap">
+                <label><input type="checkbox" onchange="checkAllEnable(this)">All Select</label>
                 <ul class="shortable assets-list">
                     <?php $this->AssetsView(); ?>
                 </ul>
@@ -189,6 +190,7 @@ class AdminView {
                 </div> 
             </div>
             <div class="assets-wrap">
+                <label><input type="checkbox" onchange="checkAllEnable(this)">All Select</label>
                 <ul class="shortable assets-list">
                     <?php $this->AssetsView(); ?>
                 </ul>
@@ -289,7 +291,7 @@ class AdminView {
                     <li>
                         <div class="asset-item css-asset">
                             <label title="<?php echo $this->dependency->src ?>">
-                                <input name="css[resource][<?php echo $id ?>][enable]" <?php echo isset($this->option->css['resource'][$id]['enable']) && $this->option->css['resource'][$id]['enable'] == '1' ? "checked" : "" ?> value="1" type="checkbox">
+                                <input class="enableCheck"  name="css[resource][<?php echo $id ?>][enable]" <?php echo isset($this->option->css['resource'][$id]['enable']) && $this->option->css['resource'][$id]['enable'] == '1' ? "checked" : "" ?> value="1" type="checkbox">
                                 <?php
                                 echo "<a href='" . $this->dependency->src . "' target='_new'>$id</a>";
                                 //echo "<pre>";
@@ -328,7 +330,7 @@ class AdminView {
                     <li>
                         <div class="asset-item css-asset">
                             <label>
-                                <input name="js[resource][<?php echo $id ?>][enable]" <?php echo isset($this->option->js['resource'][$id]['enable']) && $this->option->js['resource'][$id]['enable'] == '1' ? "checked" : "" ?> value="1" type="checkbox">
+                                <input class="enableCheck" name="js[resource][<?php echo $id ?>][enable]" <?php echo isset($this->option->js['resource'][$id]['enable']) && $this->option->js['resource'][$id]['enable'] == '1' ? "checked" : "" ?> value="1" type="checkbox">
                                 <?php
                                 echo "<a href='" . $this->dependency->src . "' target='_new'>$id</a>";
 //                                echo "<pre>";

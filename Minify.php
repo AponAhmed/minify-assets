@@ -6,7 +6,7 @@
  * Description: To Minify And Manage all of CSS and JavaScripts assets.
  * Author: SiATEX
  * Author URI: https://www.siatex.com
- * Version: 2.2.1
+ * Version: 2.2.3
  * Text Domain: mfy-minify-assets;
  */
 

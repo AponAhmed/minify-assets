@@ -2,7 +2,7 @@
 
 namespace MFY\libs;
 
-use MatthiasMullie\Minify;
+//use MatthiasMullie\Minify;
 
 /**
  * Description of JsMinify
@@ -17,8 +17,9 @@ class JsMinify {
     }
 
     static function minify($js) {
-        $minifier = new Minify\JS($js);
-        return $minifier->minify();
+        return \JShrink\Minifier::minify($js);
+        //$minifier = new Minify\JS($js);
+        //return $minifier->minify();
     }
 
 }
