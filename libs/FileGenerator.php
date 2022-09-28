@@ -93,7 +93,7 @@ class FileGenerator {
 
         $arr = [
             'local' => false,
-            'path' => '',
+            'path' => $this->dependency->src,
         ];
         if (strpos($this->dependency->src, $this->site_url) !== false) {
             $arr['local'] = true;
@@ -110,10 +110,10 @@ class FileGenerator {
         if ($this->dependency && $this->dep_info) {
             if ($this->dep_info['local']) {
                 $path = ABSPATH . $this->dep_info['path'];
+                $path = preg_replace('/([^:])(\/{2,})/', '$1/', $path);
             } else {
                 $path = $this->dep_info['path'];
             }
-            $path = preg_replace('/([^:])(\/{2,})/', '$1/', $path);
             //var_dump($path);
             $fileContent = file_get_contents($path);
         }
@@ -147,7 +147,7 @@ class FileGenerator {
                     if (isset($this->wp_styles->registered[$handle])) {
                         $this->dependency = $this->wp_styles->registered[$handle];
                         $this->filePath();
-
+                        var_dump($handle);
                         $singleFileContent = CssMinify::minify($this->getContent(), $this->dep_info['path']);
                         if (empty($singleFileContent)) {
                             continue;
