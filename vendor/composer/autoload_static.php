@@ -30,6 +30,16 @@ class ComposerStaticInit6abad33b8f0b66466e7db476afa316d8
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'J' => 
+        array (
+            'JShrink' => 
+            array (
+                0 => __DIR__ . '/..' . '/tedivm/jshrink/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -39,6 +49,7 @@ class ComposerStaticInit6abad33b8f0b66466e7db476afa316d8
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6abad33b8f0b66466e7db476afa316d8::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6abad33b8f0b66466e7db476afa316d8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6abad33b8f0b66466e7db476afa316d8::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit6abad33b8f0b66466e7db476afa316d8::$classMap;
 
         }, null, ClassLoader::class);

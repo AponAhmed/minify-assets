@@ -411,7 +411,10 @@ class FrontEnd {
                 add_action('get_footer', function () {
                     wp_enqueue_script('jquery');
                 }, 1);
-                add_action('wp_footer', function () use ($intFooterScript) {
+                add_action('wp_footer', function () {
+                    $fileName = "footer-script.js";
+                    $footerFile = __MFY_STORAGE_DIR . $fileName;
+                    $intFooterScript = html_entity_decode(file_get_contents($footerFile));
                     echo "<script id='minify-footer-js'>" . $intFooterScript . "</script>";
                 }, 9999);
             }
