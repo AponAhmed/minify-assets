@@ -115,7 +115,9 @@ class FileGenerator {
                 $path = $this->dep_info['path'];
             }
             //var_dump($path);
-            $fileContent = file_get_contents($path);
+            if (!empty($path)) {
+                $fileContent = file_get_contents($path);
+            }
         }
         return $fileContent;
     }
